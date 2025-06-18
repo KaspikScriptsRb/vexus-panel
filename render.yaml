@@ -1,0 +1,16 @@
+services:
+  # A static site for our admin panel
+  - type: web
+    name: vexus-panel
+    env: static
+    staticPublishPath: ./admin-panel
+    
+  # The API server
+  - type: web
+    name: vexus-api
+    env: node
+    plan: free
+    buildCommand: 'npm install'
+    startCommand: 'node server.js'
+    rootDir: ./api
+    healthCheckPath: / 
